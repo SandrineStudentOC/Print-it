@@ -18,11 +18,12 @@ const slides = [
 ]
 
 // Variables globales
+
 let indexCourant = 0 ; // Stock l'index de pagination du slide
 
-let divDots = document.querySelector(".dots") // Récupère la classe .dots
+const nbrSlides = slides.length // Compte le nbr d'éléments du tableau
 
-const nbrSlides = slides.length // compte le nbr d'éléments du tableau
+let divDots = document.querySelector(".dots") // Récupère la classe .dots
 
 let imageSlide = document.querySelector(".banner-img"); // Récupère l'image du slide
 
@@ -30,18 +31,20 @@ let baliseTitreBanniere = document.getElementById("titreBanniere"); // Récupèr
 
 
 
-// Fonctions
+// FONCTIONS
+
+// Change slide
 
 function changeSlide () { // Permet de mettre à jour le slider 
 	console.log (indexCourant)
 	constructionBullet()
 	// Permet de parcourir le tableau et de changer l'image et le texte du tableau :
 	imageSlide.src = "./assets/images/slideshow/" + slides[indexCourant].image // Modifie l'attribut src de l'image
-	baliseTitreBanniere.innerHTML = slides[indexCourant].tagLine // Insère tagLine du tableau dans la balise <p>
+	baliseTitreBanniere.innerHTML = slides[indexCourant].tagLine // Insère tagLine (html) du tableau dans la balise <p>
 }
 
 
-//
+// Construction des bullets
 
 function constructionBullet () {
 	divDots.innerHTML=`` //Réinitialise le html div dots 
@@ -55,7 +58,7 @@ function constructionBullet () {
 	}
 }
 
-// récupére l'élément flèche gauche dans mon html et ajoute un évènement
+// Récupére l'élément flèche gauche dans mon html et ajoute un évènement
 
 let buttonArrowLeft = document.querySelector(".arrow_left");
 buttonArrowLeft.addEventListener("click", () => {
@@ -68,7 +71,7 @@ buttonArrowLeft.addEventListener("click", () => {
 });
 
 
-// récupére l'élément flèche droite dans mon html et ajoute un évènement
+// Récupére l'élément flèche droite dans mon html et ajoute un évènement
 
 let buttonArrowRight = document.querySelector(".arrow_right");
 buttonArrowRight.addEventListener("click", () => {
